@@ -39,7 +39,7 @@ public class ArrayMethods {
     public static int arr2DSum(int[][]nums){
         //use a nested loop to solve this
           int ans = 0;
-  
+
           for(int i = 0; i < nums.length; i++){
               for (int j = 0; j < nums[i].length; j++){
                   ans += nums[i][j];
@@ -58,17 +58,48 @@ public class ArrayMethods {
 
         for (int i = 0; i < nums.length; i++){
             for (int j = 0; j < nums[i].length; j++){
-                swapped[j][i] = nums[i][j];    
+                swapped[j][i] = nums[i][j];
             }
         }
         return swapped;
     }
+
+
+    //3. Modify a given 2D array of integer as follows:
+    //Replace all the negative values:
+    //-When the row number is the same as the column number replace
+    //that negative with the value 1
+    //-All other negatives replace with 0
+    public static void replaceNegative(int[][] vals){
+        for( int i =0; i< vals.length; i++){
+          for (int j = 0; j < vals[i].length; j++){
+            if(vals[i][j] < 0 && i == j){
+              vals[i][j] = 1;
+            }
+            if(vals[i][j] < 0 && i != j){
+              vals[i][j] = 0;
+            }
+          }
+        }
+}
+
+    //4. Make a copy of the given 2d array.
+    //When testing : make sure that changing the original does NOT change the copy.
+    //DO NOT use any built in methods that "copy" an array.
+    //You SHOULD write a helper method for this.
+    //If you don't see a good way to do that, you should stop and look at prior methods.
+    public static int[][] copy(int[][] nums){
+      return null;//placeholder so it compiles
+    }
+
+
 
     public static void main(String[] args) {
         int[][] empty2D = new int[3][0]; // empty rows
         int[][] rectangular2D = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}}; // [4][3]
         int[][] square2D = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; // [3][3]
         int[][] ragged2D = {{1, 2, 3, 4, 5, 6}, {7}, {8, 9}, {10, 11, 12, 13}}; // ragged with varying lengths
+        int[][] negative2D = {{-1, -25, 25, 1}, {23, 34, -100, 0, -3}};
 
         // arrToString tests with 2D arrays
         System.out.println("String tests: ");
@@ -86,9 +117,13 @@ public class ArrayMethods {
 
         // swapRC tests
         System.out.println("swapRC tests: ");
-        System.out.println(arrToString(swapRC(empty2D))); 
-        System.out.println(arrToString(swapRC(rectangular2D))); 
-        System.out.println(arrToString(swapRC(square2D))); 
+        System.out.println(arrToString(swapRC(empty2D)));
+        System.out.println(arrToString(swapRC(rectangular2D)));
+        System.out.println(arrToString(swapRC(square2D)));
         System.out.println(arrToString(swapRC(ragged2D))); // will create some arrays with 0 as other indexes because first array is larger.
+
+        // replace negative tests
+        replaceNegative(negative2D);
+        System.out.println(negative2D);
     }
 }
