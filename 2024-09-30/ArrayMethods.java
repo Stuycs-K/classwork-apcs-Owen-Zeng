@@ -89,7 +89,27 @@ public class ArrayMethods {
     //You SHOULD write a helper method for this.
     //If you don't see a good way to do that, you should stop and look at prior methods.
     public static int[][] copy(int[][] nums){
-      return null;//placeholder so it compiles
+        int[][] twoCopy = new int[nums.length][];
+
+        for( int i =0; i < nums.length; i++){
+            twoCopy[i] = new int[nums[i].length];
+        }
+
+        for (int i = 0; i < nums.length; i++){
+            twoCopy[i] = oneCopy(nums[i]);
+        }
+        return twoCopy;
+    }
+
+
+    // helper funcion that copies 1D array
+    public static int[] oneCopy(int[] ary){
+        int[] copy = new int[ary.length];
+
+        for(int i = 0; i < ary.length; i++){
+            copy[i] = ary[i];
+        }
+        return copy;
     }
 
 
@@ -101,29 +121,40 @@ public class ArrayMethods {
         int[][] ragged2D = {{1, 2, 3, 4, 5, 6}, {7}, {8, 9}, {10, 11, 12, 13}}; // ragged with varying lengths
         int[][] negative2D = {{-1, -25, 25, 1}, {23, 34, -100, 0, -3}};
 
-        // arrToString tests with 2D arrays
+        // arrToString test
         System.out.println("String tests: ");
         System.out.println(arrToString(empty2D));
         System.out.println(arrToString(rectangular2D));
         System.out.println(arrToString(square2D));
         System.out.println(arrToString(ragged2D));
 
-        // 2D sum tests
+        // 2D sum test
         System.out.println("Sum tests: ");
         System.out.println(arr2DSum(empty2D));
         System.out.println(arr2DSum(rectangular2D));
         System.out.println(arr2DSum(square2D));
         System.out.println(arr2DSum(ragged2D));
 
-        // swapRC tests
+        // swapRC test
         System.out.println("swapRC tests: ");
         System.out.println(arrToString(swapRC(empty2D)));
         System.out.println(arrToString(swapRC(rectangular2D)));
         System.out.println(arrToString(swapRC(square2D)));
         System.out.println(arrToString(swapRC(ragged2D))); // will create some arrays with 0 as other indexes because first array is larger.
 
-        // replace negative tests
+        // replace negative test
+        System.out.println("Replace Negative tests: ");
+        System.out.println("Original Array" + arrToString(negative2D));
         replaceNegative(negative2D);
-        System.out.println(negative2D);
+        System.out.println(arrToString(negative2D));
+
+        // copy test
+        System.out.println("Copy 2D array tests: ");
+        System.out.println(ragged2D);
+        System.out.println(copy(ragged2D));
+        System.out.println("Address Same? : " + (ragged2D == copy(ragged2D)));
+        System.out.println(arrToString(ragged2D));
+        System.out.println(arrToString(copy(ragged2D)));
+
     }
 }
