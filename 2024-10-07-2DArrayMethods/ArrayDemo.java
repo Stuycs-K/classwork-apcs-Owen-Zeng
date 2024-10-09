@@ -6,6 +6,14 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
 
+    int [] random1D = new int[]{1,3264,763,75,3,346};
+    int [][] random2D = new int[][]{{1,1232,43,12}, {87,1234, 9}, {-1432,234, 7980}};
+
+    System.out.println("1D string tests: " + Arrays.toString(random1D).equals(arrToString(random1D)));
+    System.out.println("2D string tests: " + Arrays.deepToString(random2D).equals(arrToString(random2D)));
+
+    System.out.println(arrToString(htmlTable(random2D)));
+
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -47,6 +55,8 @@ public class ArrayDemo{
         }
       }
     }
+
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
@@ -117,7 +127,7 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    String html = "<table>"
+    String html = "<table>";
 
     for (int i =0; i < nums.length; i++){
       html += "<tr>";
@@ -126,7 +136,12 @@ public class ArrayDemo{
         html += nums[i][j];
         html += "</td>";
       }
-      html += "</tr>"
+      html += "</tr>";
     }
+
+    html += "</table>";
+    return html;
   }
+
+
 }
