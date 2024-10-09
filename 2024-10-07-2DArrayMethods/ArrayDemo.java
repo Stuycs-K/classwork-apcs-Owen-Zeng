@@ -12,18 +12,18 @@ public class ArrayDemo{
     System.out.println("1D string tests: " + Arrays.toString(random1D).equals(arrToString(random1D)));
     System.out.println("2D string tests: " + Arrays.deepToString(random2D).equals(arrToString(random2D)));
 
-    System.out.println(arrToString(htmlTable(random2D)));
-
+    System.out.println((htmlTable(random2D)));
+    System.out.println(htmlTable(new int[][]{{1,2},{3}}));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
   public static String arrToString(int[]ary){
     String aryContent = "[";
-    for (int i = 0; i < nums.length-1; i ++){
-      aryContent += nums[i] + ", ";
+    for (int i = 0; i < ary.length-1; i ++){
+      aryContent += ary[i] + ", ";
     }
-    if (nums.length != 0)
-      aryContent += nums[nums.length-1];
+    if (ary.length != 0)
+      aryContent += ary[ary.length-1];
     aryContent += "]";
     return aryContent;
   }
@@ -35,10 +35,10 @@ public class ArrayDemo{
     String ans = "[";
 
     for (int i = 0; i < ary.length-1; i++){
-      ans += aryToString(ary[i]) + ", ";
+      ans += arrToString(ary[i]) + ", ";
     }
     if (ary.length != 0){
-      ans += ary[ary.length-1];
+      ans += arrToString(ary[ary.length-1]);
     }
     ans += "]";
     return ans;
@@ -105,6 +105,14 @@ public class ArrayDemo{
         twoCopy[i] = oneCopy(nums[i]);
     }
     return twoCopy;
+}
+// helper funcion that copies 1D array
+  public static int[] oneCopy(int[] ary){
+    int[] copy = new int[ary.length];
+    for(int i = 0; i < ary.length; i++){
+        copy[i] = ary[i];
+    }
+    return copy;
   }
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
