@@ -28,5 +28,13 @@ public class Demo{
 
     System.out.println( p1.distanceTo(p2));
     System.out.println( p4.distanceTo(p1)); // root 2
+
+
+    // triangle points
+    Point v1 = new Point(0,0);
+    Point v2 =  new Point(1, 0);
+    Point v3 = new Point (.5, Math.sqrt(.75));
+
+    
   }
 }
