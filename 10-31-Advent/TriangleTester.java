@@ -95,11 +95,7 @@ public class TriangleTester{
                 }
             }
 
-            for(int i = 0; i < a.size(); i++){
-                if(trianglePossiblity(a.get(i), b.get(i), c.get(i))){
-                    count++;
-                }
-            }
+
 
 
             input.close();
