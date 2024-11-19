@@ -31,17 +31,22 @@ public class Day1{
           }
 
 
+
           if(rotation == 0){
-            vertical += (Integer.parseInt(nextDir.substring(1,2)));
+            nextDir = nextDir.replace(",", "");
+            vertical += (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
           }
           if(rotation == 90){
-            horizontal += (Integer.parseInt(nextDir.substring(1,2)));
+            nextDir = nextDir.replace(",", "");
+            horizontal += (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
           }
           if(rotation == 180){
-            vertical -= (Integer.parseInt(nextDir.substring(1,2)));
+            nextDir = nextDir.replace(",", "");
+            vertical -= (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
           }
           if(rotation == 270){
-            horizontal -= (Integer.parseInt(nextDir.substring(1,2)));
+            nextDir = nextDir.replace(",", "");
+            horizontal -= (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
 
           }
         }
