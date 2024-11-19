@@ -18,7 +18,7 @@ public class Day2{
       while(input.hasNextLine()){
         String line = input.nextLine();
         String[] arr = line.split(""\\|"");
-        System.out.println(Arrays.toString(line));
+        System.out.println(Arrays.toString(arr));
 
         for(int i =0; i < arr.length; i++){
           switch (arr[i]){
