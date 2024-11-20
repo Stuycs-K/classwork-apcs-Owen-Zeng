@@ -1,12 +1,15 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 
 public class Day4 {
-    
+
     public static int sectorSum(){
 
         int sectorSum = 0;
+        HashMap<String, Integer> map =  HashMap<>();
+
 
         try {
             File file = new File("input.txt");//1
@@ -14,7 +17,14 @@ public class Day4 {
 
             while(input.hasNextLine()){
                 String line = input.nextLine();
-                
+                for(int i = 0; i < line.length() - 9; i++){
+                  if(! map.containsKey(line.substring(i, i+1)) && Character.isAlphabetic(line.charAt(i))){
+                    map.put(line.substring(i,i+1), 1)
+                  }
+                  else if(Character.isAlphabetic(line.charAt(i)){
+                    map.put(line.substring(i,i+1), map.get())
+                  }
+                }
             }
 
             input.close();
