@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 
 public class Day2{
   public static String bCode(){
@@ -17,22 +16,27 @@ public class Day2{
 
       while(input.hasNextLine()){
         String line = input.nextLine();
-        String[] arr = line.split(""\\|"");
-        System.out.println(Arrays.toString(arr));
-
-        for(int i =0; i < arr.length; i++){
-          switch (arr[i]){
-            case "U":
-              y--;
-              break;
-            case "R":
-              x++;
-              break;
-            case "D":
-              y++;
-              break;
-            case "L":
+        System.out.println(line);
+        
+        for(int i =0; i < line.length(); i++){
+          switch (line.charAt(i)){
+            case 'U':
               x--;
+              System.out.println(x + "," + y);
+              break;
+            case 'R':
+              y++;
+
+              System.out.println(x + "," + y);
+
+              break;
+            case 'D':
+              x++;
+              System.out.println(x + "," + y);
+              break;
+            case 'L':
+              y--;
+              System.out.println(x + "," + y);
               break;
           }
           if(x < 0){
@@ -48,6 +52,7 @@ public class Day2{
             x = 2;
           }
         }
+        System.out.println(pad[x][y]);
         ans += pad[x][y];
       }
 
