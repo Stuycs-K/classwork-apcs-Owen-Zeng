@@ -6,13 +6,17 @@ public class Day2{
   public static String bCode(){
     String ans = "";
 
-    String[][] pad= new String[][]{{"1","2","3"},{"4","5","6"},{"7","8","9"}};
+    String[][] pad = {
+      {"0", "0", "0", "0", "0", "0", "0"},{"0", "0", "0", "1", "0", "0", "0"},{"0", "0", "2", "3", "4", "0", "0"},{"0", "5", "6", "7", "8", "9", "0"},{"0", "0", "A", "B", "C", "0", "0"},{"0", "0", "0", "D", "0", "0", "0"},{"0", "0", "0", "0", "0", "0", "0"}
+  };
+  
 
     try {
       File file = new File("input.txt");//1
       Scanner input = new Scanner(file);
 
-      int x= 1, y=1;
+      int x= 3, y=1;
+      System.out.println(pad[x][y]);
 
       while(input.hasNextLine()){
         String line = input.nextLine();
@@ -21,36 +25,50 @@ public class Day2{
         for(int i =0; i < line.length(); i++){
           switch (line.charAt(i)){
             case 'U':
+              int tempX0 = x;
+              int tempY0 = y;
               x--;
+              if(pad[x][y].equals("0")){
+                x = tempX0;
+                y= tempY0;
+              }
+
               System.out.println(x + "," + y);
               break;
             case 'R':
+              int tempX1 = x;
+              int tempY1 = y;
               y++;
+              if(pad[x][y].equals("0")){
+                x = tempX1;
+                y= tempY1;
+              }
 
               System.out.println(x + "," + y);
 
               break;
             case 'D':
+              int tempX2 = x;
+              int tempY2 = y;
               x++;
+              if(pad[x][y].equals("0")){
+                x = tempX2;
+                y= tempY2;
+              }
               System.out.println(x + "," + y);
               break;
             case 'L':
+              int tempX3 = x;
+              int tempY3 = y;
               y--;
+              if(pad[x][y].equals("0")){
+                x = tempX3;
+                y= tempY3;
+              }
               System.out.println(x + "," + y);
               break;
           }
-          if(x < 0){
-            x= 0;
-          }
-          if(y < 0){
-            y=0;
-          }
-          if(y> 2){
-            y = 2;
-          }
-          if(x>2){
-            x = 2;
-          }
+
         }
         System.out.println(pad[x][y]);
         ans += pad[x][y];

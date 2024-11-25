@@ -8,7 +8,7 @@ public class Day4 {
     public static int sectorSum(){
 
         int sectorSum = 0;
-        HashMap<String, Integer> map =  HashMap<>();
+        HashMap<String, Integer> map =  new HashMap<>();
 
 
         try {
@@ -19,10 +19,10 @@ public class Day4 {
                 String line = input.nextLine();
                 for(int i = 0; i < line.length() - 9; i++){
                   if(! map.containsKey(line.substring(i, i+1)) && Character.isAlphabetic(line.charAt(i))){
-                    map.put(line.substring(i,i+1), 1)
+                    map.put(line.substring(i,i+1), 1);
                   }
-                  else if(Character.isAlphabetic(line.charAt(i)){
-                    map.put(line.substring(i,i+1), map.get())
+                  else if(Character.isAlphabetic(line.charAt(i))){
+                    map.put(line.substring(i,i+1), map.get(line.substring(i,i+1)));
                   }
                 }
             }
