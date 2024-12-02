@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +14,8 @@ public class Day1{
     try {
       File file = new File("input.txt");//1
       Scanner input = new Scanner(file);
+
+      ArrayList<String> places = new ArrayList<>();
 
         while(input.hasNext()){
           String nextDir = input.next();
@@ -34,20 +37,37 @@ public class Day1{
 
           if(rotation == 0){
             nextDir = nextDir.replace(",", "");
-            vertical += (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
+
+            for (int i = 0; i < Integer.parseInt(nextDir.substring(1,nextDir.length() )); i++){
+              vertical ++;
+            }
+
           }
           if(rotation == 90){
             nextDir = nextDir.replace(",", "");
-            horizontal += (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
+            for (int i = 0; i < Integer.parseInt(nextDir.substring(1,nextDir.length() )); i++){
+              horizontal ++;
+            }
           }
           if(rotation == 180){
             nextDir = nextDir.replace(",", "");
-            vertical -= (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
+            for (int i = 0; i < Integer.parseInt(nextDir.substring(1,nextDir.length() )); i++){
+              horizontal --;
+            }
           }
           if(rotation == 270){
             nextDir = nextDir.replace(",", "");
-            horizontal -= (Integer.parseInt(nextDir.substring(1,nextDir.length() )));
+            for (int i = 0; i < Integer.parseInt(nextDir.substring(1,nextDir.length() )); i++){
+              horizontal --;
+            }
 
+          }
+          if(places.contains(horizontal + ", " + vertical)){
+            System.out.println(horizontal + ", " + vertical);
+            break;
+          }
+          else{
+            places.add(horizontal + ", " + vertical);
           }
         }
         input.close();
