@@ -8,11 +8,14 @@ public class ColorDemo{
     public static final String Magenta =  "\u001b[35m";
     public static final String Cyan =  "\u001b[36m";
     public static final String White =  "\u001b[37m";
+    
+    public static final String CLEAR_SCREEN =  "\u001b[2J";
+    public static final String HIDE_CURSOR =  "\u001b[?25l";
+    public static final String SHOW_CURSOR =  "\u001b[?25h";
+
+
 
   public static void main(String[] args){
-
-
-
 
     for(int r = 0; r < 256; r+=32){
       for(int g = 0; g <= 256; g+=32){
