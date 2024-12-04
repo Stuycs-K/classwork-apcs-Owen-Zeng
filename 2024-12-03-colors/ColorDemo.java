@@ -1,13 +1,15 @@
 public class ColorDemo{
 
-    public static final String Black =  "\u001b[30m";
-    public static final String Red =  "\u001b[31m";
-    public static final String Green =  "\u001b[32m";
-    public static final String Yellow =  "\u001b[33m";
-    public static final String Blue =  "\u001b[34m";
-    public static final String Magenta =  "\u001b[35m";
-    public static final String Cyan =  "\u001b[36m";
-    public static final String White =  "\u001b[37m";
+    public static final int Black =  30;
+    public static final int Red =  31;
+    public static final int Green =  32;
+    public static final int Yellow =  33;
+    public static final int Blue =  34;
+    public static final int Magenta =  35;
+    public static final int Cyan =  36;
+    public static final int White =  37;
+    
+    
     
     public static final String CLEAR_SCREEN =  "\u001b[2J";
     public static final String HIDE_CURSOR =  "\u001b[?25l";
@@ -16,20 +18,32 @@ public class ColorDemo{
 
 
   public static void main(String[] args){
+    System.out.print(HIDE_CURSOR);
+    // System.out.println("\u001b[1;4]");
+    System.out.print("\u001b[48;2;0;100;0;1m.");
+    System.out.println("\u001b[33m");
+    System.out.println("This shade of green is pretty good");
 
-    for(int r = 0; r < 256; r+=32){
-      for(int g = 0; g <= 256; g+=32){
-        for(int b = 0; b <= 256; b+=32){
-          System.out.print("\u001b[38;2;"+r+";"+g+";"+b+";7m.");
-        }
-      }
-        System.out.println();
+    for(int i = 100; i < 220; i += 20){
+      System.out.println("\u001b[48;2;0;" + i + ";0;1m");
+      System.out.println("\u001b[33m");
+      System.out.println("Its getting slightly worse every time");
     }
+    System.out.println("\u001b[48;2;0;240;0;1m");    
+    System.out.print("this just looks ugly now");
 
+    for(int i =0; i <  100; i+= 15){
+      System.out.println("\u001b[34m");
+      System.out.println("\u001b[48;2;" + (75 + i) + ";0;" + (130 + i) + ";1m");
+      System.out.println("most shades of purple are pretty good though");
+    }
+    System.out.println("\u001b[48;2;65;0;115;1m");
+    System.out.print("cyan on dark purple looks decent too");
 
-    System.out.print("\u001b[31m");
-    System.out.print("\u001b[1m");
+    
 
-    System.out.println("isthis red");
+    System.out.print("\u001b[0m");
+    System.out.print("\033[49m");
+    System.out.print(SHOW_CURSOR);
   }
 }
