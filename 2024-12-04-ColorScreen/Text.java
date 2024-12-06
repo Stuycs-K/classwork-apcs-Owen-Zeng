@@ -25,6 +25,9 @@ public static int  background(int color){
   return color + 10;
 }
 
+// reset background
+public static final String BACKGROUND_RESET = "\033[49m";
+
 //terminal specific character to move the cursor to a location
 //top left is 1,1
 //row is y (higher numbers go down)
