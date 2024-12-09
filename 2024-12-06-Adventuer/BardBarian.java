@@ -4,8 +4,8 @@ public class BardBarian extends Adventurer{
 
     public BardBarian(String name){
       super(name);
-      this.furyNote = 3;
-      this.maxFuryNote = 3;
+      this.furyNote = 2;
+      this.maxFuryNote = 4;
     }
     public BardBarian(String name, int hp, int fury){
       super(name, hp);
@@ -57,10 +57,10 @@ public class BardBarian extends Adventurer{
 
     public String specialAttack(Adventurer other){
       if(this.furyNote > 0){
-          other.applyDamage(other.getHP());
+          other.applyDamage(other.getHP() - 2);
           furyNote--;
       }
-      return "kills other adventurer";
+      return "almost kills other adventurer";
     }
 
 }
