@@ -9,7 +9,7 @@ public class BardBarian extends Adventurer{
     }
     public BardBarian(String name, int hp, int fury){
       super(name, hp);
-      this.furyNote = fury;
+      this.furyNote = fury / 2;
       this.maxFuryNote = fury;
     }
 
@@ -40,7 +40,7 @@ public class BardBarian extends Adventurer{
 
     public String support(Adventurer other){
       if(this.furyNote > 0){
-        other.restoreSpecial(other.getSpecial());
+        other.restoreSpecial(other.getSpecialMax());
         other.setHP(other.getHP());
         this.furyNote--;
       }
@@ -49,7 +49,7 @@ public class BardBarian extends Adventurer{
 
     public String support(){
       if(this.furyNote > 0){
-        this.setHP(this.getHP());
+        this.setHP(this.getmaxHP());
         this.furyNote--;
       }
       return "Full heal self if have resource pt";
